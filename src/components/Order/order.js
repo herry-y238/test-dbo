@@ -12,9 +12,9 @@ import { getCustomer } from '../../services/customerAPI'
 import { editCustomer } from '../../services/editCustomerAPI'
 import { deleteCustomer } from '../../services/deleteCustomerAPI'
 import { insertCustomer } from '../../services/insertCustomerAPI'
-import './styles/dashboard.css'
+import './styles/order.css'
 
-export default function Dashboard() {
+export default function Order() {
     const [postsPerPage] = useState(5);
     const [offset, setOffset] = useState(1);
     const [customers, setAllCustomer] = useState([]);
@@ -43,9 +43,6 @@ export default function Dashboard() {
                 </td>
                 <td>
                     <Button size="sm" variant="primary" onClick={() => editDetailCustomer(customer.id)}>Edit</Button>
-                </td>
-                <td>
-                    <Button size="sm" variant="danger" onClick={() => deleteCustomer(customer.id)}>Delete</Button>
                 </td>
           </tr>)
         )
@@ -155,13 +152,13 @@ export default function Dashboard() {
             <Container>
                 <Row className="titleWrapper">
                     <Col md="10">
-                        <h3>Customer Management</h3>
+                        <h3>Order Management</h3>
                     </Col>
-                    <Col className="addWrapper" md="2">
+                    {/* <Col className="addWrapper" md="2">
                         <Button variant="primary" onClick={() => openInsertCustomer()}>
                             Tambah
                         </Button>
-                    </Col>
+                    </Col> */}
                 </Row>
                 <Row>
                     <Col md="12">
@@ -241,64 +238,6 @@ export default function Dashboard() {
                                 Close
                             </Button>
                             <Button variant="primary" className='btn-edit-save' onClick={handleCloseDetailEdit}>
-                                Save Changes
-                            </Button>
-                        </Form>
-                    </Modal.Body>
-                </Modal>
-
-                <Modal show={showDeleteModal} onHide={handleCloseDetailDelete}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Delete Customer</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                            <h4>Are you sure want to delete</h4>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleCloseDetailDelete}>
-                                Close
-                        </Button>
-                        <Button variant="primary" onClick={handleDelete}>
-                                Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-
-                <Modal show={showInsertCustomerModal} onHide={handleCloseDetailInsert}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Insert Customer</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form onSubmit={handleInsert}>
-                            <Form.Group size="sm" controlId="id">
-                                <Form.Label>UserID</Form.Label>
-                                <Form.Control
-                                    autoFocus
-                                    type="text"
-                                    defaultValue={''}
-                                    onChange={(e) => setInsertUserID(e.target.value)}
-                            />
-                            </Form.Group>
-                            <Form.Group size="sm" controlId="id">
-                                <Form.Label>Name</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    defaultValue={''}
-                                    onChange={(e) => setInsertName(e.target.value)}
-                                />
-                            </Form.Group>
-                            <Form.Group size="sm" controlId="password">
-                                <Form.Label>Detail</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    defaultValue={''}
-                                    onChange={(e) => setInsertDetail(e.target.value)}
-                                />
-                            </Form.Group>
-                            <Button variant="secondary" className='btn-edit-close' onClick={handleCloseDetailInsert}>
-                                Close
-                            </Button>
-                            <Button variant="primary" className='btn-edit-save' onClick={handleInsert}>
                                 Save Changes
                             </Button>
                         </Form>

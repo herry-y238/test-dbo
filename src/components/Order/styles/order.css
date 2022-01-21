@@ -1,0 +1,43 @@
+.pagination {
+    margin-top: 45px;
+    margin-left: 0px;
+    display: flex;
+    list-style: none;
+    outline: none;
+}
+    
+.pagination>.active>a {
+    background-color: #47ccde;
+    color: #fff;
+}
+    
+.pagination>li>a {
+    border: 1px solid #47ccde;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+}
+    
+.pagination>li>a, .pagination>li>span {
+    color: #47ccde;
+    background-color: azure;
+}
+
+.btn-edit-close {
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.btn-edit-save {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.titleWrapper {
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.addWrapper {
+    text-align: right;
+}
